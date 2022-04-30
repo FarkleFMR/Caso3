@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const uri = 'mongodb://25.0.1.62:27021/ordenes'
+const uri = 'mongodb://25.0.1.62:27021/pruebaApi'
 
 const db = mongoose.connection;
 

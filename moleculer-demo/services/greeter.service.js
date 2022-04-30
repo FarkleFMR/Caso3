@@ -2,8 +2,6 @@
 
 const {buscarUnCliente} = require('../crud/findOneCliente');
 
-const clientes = require('../src/index');
-
 /**
  * @typedef {import('moleculer').Context} Context Moleculer's Context
  */
@@ -39,14 +37,13 @@ module.exports = {
 				path: "/hello"
 			},
 			async handler(ctx) {
-				return clientes
 			}
 		},
 
 		/**
 		 * Welcome, a username
 		 *
-		 * @param {String} cedula - User name
+		 * @param {String} name - User name
 		 */
 		welcome: {
 			rest: "/welcome",
