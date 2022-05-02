@@ -1,8 +1,7 @@
-const {buscarContenedores} = require('../crud/obtenerContenedores');
-const {buscarContenedor} = require('../crud/obtenerContenedores');
+const {postPedido} = require('../crud/postPedido');
 
 module.exports = {
-	name: "contenedores",
+	name: "pedidos",
 
 	/**
 	 * Settings
@@ -21,16 +20,19 @@ module.exports = {
 	 */
 	actions: {
 
-		obtCont:{
-			rest: "/obtCont",
+		newPedido:{
+			rest: "/newPedido",
 			params: {
-				cedula: "string",
-				pais: "string"
+                clienteId: "string",
+                contenedorId: "string",
+                peso: "number",
+                espacio: "array",
+                destino: "string",
+                descripcion: "string"
 			},
 			/** @param {Context} ctx */
-			async handler(route){
-                console.log(route.params.pais)
-				return buscarContenedores(route.params.pais)
+			async handler(ctx){
+				return postPedido(ctx.params.clienteId, ctx.params.contenedorId, ctx.params.peso, ctx.params.espacio, ctx.params.destino, ctx.params.descripcion)
 			}
 		}
 	},

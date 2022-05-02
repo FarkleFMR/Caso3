@@ -8,4 +8,4 @@ const clienteSchema = new Schema({
     _id: Schema.Types.ObjectId
 })
 
-module.exports = model('Cliente',clienteSchema,'cliente')
+module.exports = model('Cliente', clienteSchema, 'cliente')

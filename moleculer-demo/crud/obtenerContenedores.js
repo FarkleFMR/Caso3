@@ -8,4 +8,9 @@ async function buscarContenedores(pPais){
     return contenedores
 }
 
-module.exports = { buscarContenedores }
+async function buscarContenedor(pId){
+    const contenedor = await ContenedorModel.find({_id:pId});
+    return contenedor
+}
+
+module.exports = { buscarContenedores, buscarContenedor }

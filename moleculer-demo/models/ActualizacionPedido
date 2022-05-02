@@ -1,0 +1,10 @@
+const {Schema, model} = require('mongoose');
+
+const actPedidoSchema = new Schema({
+    PedidoId: String,
+    Estado: String,
+    Fecha: String,
+    UbicacionActual: String
+})
+
+module.exports = model('ActPedido', actPedidoSchema,'pedido')

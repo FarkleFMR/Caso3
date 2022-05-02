@@ -36,5 +36,10 @@
     "roots": [
       "../test"
     ]
-  }
+  },
+  "main": "moleculer.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "license": "ISC"
 }

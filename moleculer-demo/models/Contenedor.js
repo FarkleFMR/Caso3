@@ -10,7 +10,7 @@ const contenedorSchema = new Schema({
     UbicacionActual: String,
     PesoMaximo: Number,
     PesoDisponible: Number,
-    PrecioxKilo: Number
+    PrecioXkilo: Number
 })
 
 module.exports = model('Contenedor',contenedorSchema,'contenedor')
