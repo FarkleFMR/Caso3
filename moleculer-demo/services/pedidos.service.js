@@ -20,19 +20,20 @@ module.exports = {
 	 */
 	actions: {
 
+        // call pedidos.newPedido --@clienteId --@contenedorId --@peso --@espacio --@destino --@descripcion
 		newPedido:{
 			rest: "/newPedido",
 			params: {
                 clienteId: "string",
                 contenedorId: "string",
-                peso: "number",
-                espacio: "array",
+                peso: "string",
+                espacio: "string",
                 destino: "string",
                 descripcion: "string"
 			},
 			/** @param {Context} ctx */
 			async handler(ctx){
-				return postPedido(ctx.params.clienteId, ctx.params.contenedorId, ctx.params.peso, ctx.params.espacio, ctx.params.destino, ctx.params.descripcion)
+				return postPedido(ctx.params.clienteId, ctx.params.contenedorId, ctx.params.peso, ctx.params.espacio.split(','), ctx.params.destino, ctx.params.descripcion)
 			}
 		}
 	},

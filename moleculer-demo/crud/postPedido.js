@@ -1,4 +1,6 @@
 require('../src/conexion');
+//const { processProducer } = require('../Kafka/Producer');
+
 
 const PedidoModel = require('../models/Pedido');
 const ContenedorModel = require('../models/Contenedor');
@@ -35,7 +37,7 @@ async function postPedido(pClienteId, pContenedorId, pPeso, pEspacio, pDestino, 
     if(!cliente) {
         return { msg: "El cliente no existe"}
     }
-    else if(!isPaisValido(pDestino) || pDestino == contenedor.UbicacionActual) {
+    else if(!isPaisValido(pDestino) || pDestino == contenedor.ubicacion_actual) {
         return { msg: "El pais destino no es valido"}
     }
     else if(contenedor.PesoDisponible >= pPeso && fits(pEspacio, contenedor.EspacioDisponible)) {
@@ -49,9 +51,9 @@ async function postPedido(pClienteId, pContenedorId, pPeso, pEspacio, pDestino, 
             Estado: ESTADO_EN_CURSO,
             Fecha: dateStr,
             Peso: pPeso,
-            Ruta: [ contenedor.UbicacionActual, pDestino ],
+            Ruta: [ contenedor.ubicacion_actual, pDestino ],
             Tamaño: pEspacio,
-            UbicacionActual: contenedor.UbicacionActual,
+            ubicacion_actual: contenedor.ubicacion_actual,
             PrecioTotal: contenedor.PrecioXkilo * pPeso
         })
 
@@ -71,7 +73,7 @@ async function postPedido(pClienteId, pContenedorId, pPeso, pEspacio, pDestino, 
                 })
             }
         });
-
+        //processProducer("pedidos");
         return pedido
     }
     else {

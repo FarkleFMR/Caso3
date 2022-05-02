@@ -9,7 +9,7 @@ const pedidoSchema = new Schema({
     Peso: Number,
     Ruta: Array,
     Tamaño: Array,
-    UbicacionActual: String,
+    ubicacion_actual: String,
     PrecioTotal: Number
 })
 

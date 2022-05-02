@@ -7,7 +7,7 @@ const contenedorSchema = new Schema({
     Empresa: String,
     EspacioDisponible: Array,
     Ruta: Array,
-    UbicacionActual: String,
+    ubicacion_actual: String,
     PesoMaximo: Number,
     PesoDisponible: Number,
     PrecioXkilo: Number
